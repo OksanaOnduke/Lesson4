@@ -1,23 +1,24 @@
-import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
+        int a = 9, b = 7;
+        String s = "hbbuj";
         printThreeWords();
         checkSumSign();
         printColor();
         compareNumbers();
-        counter();
-        plusOrMinus();
-        method1();
-        method2();
-        years();
+        counter(a, b);
+        plusOrMinus(4);
+        negativeNumber(a);
+        printStrings(a,s);
+        years(a);
         massive1();
         massive2();
         massive3();
         massive4();
-        massive5();
+        massive5(a,b);
     }
 
     static void printThreeWords() {
@@ -29,8 +30,7 @@ public class Main {
     static void checkSumSign() {
         int a = -3;
         int b = 2;
-        int sum = a + b;
-        if (sum > 0)
+        if (a + b >= 0)
             System.out.println("Сумма положительная");
         else
             System.out.println("Сумма отрицательная");
@@ -38,12 +38,11 @@ public class Main {
 
     static void printColor() {
         int value = 100;
-        if (0 < value)
-            if (value <= 100)
-                System.out.println("Желтый");
+        if (value > 0 & value <= 100)
+            System.out.println("Желтый");
         if (value <= 0)
             System.out.println("Красный");
-        if (value > 100)
+        else
             System.out.println("Зеленый");
     }
 
@@ -56,75 +55,33 @@ public class Main {
             System.out.println("a < b");
     }
 
-    static void counter() {
-        boolean c = false;
-        Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
-
-        Scanner scanner1 = new Scanner(System.in);
-        int b = scanner1.nextInt();
-        if (a + b > 10 & a + b <= 20) {
-            c = true;
-            System.out.println(c);
-        } else {
-            System.out.println(c);
-        }
+    static boolean counter(int a, int b) {
+        int sum = a + b;
+        return sum >= 10 && sum <= 20;
     }
 
-    static void plusOrMinus() {
-        Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
+
+    static void plusOrMinus(int a) {
         if (a >= 0)
             System.out.println("число положительное");
         else
             System.out.println("число отрицительное");
     }
 
-    static void method1() {
-        boolean c = false;
-        Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
-        if (a < 0) {
-            c = true;
-            System.out.println(c);
-        } else {
-            System.out.println(c);
+    static boolean negativeNumber(int a) {
+        return a < 0;
+    }
+
+    static void printStrings(int a, String s) {
+        int j = a;
+        while (j != 0) {
+            System.out.println(s);
+            j--;
         }
     }
 
-    static void method2() {
-        Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
-        Scanner scanner1 = new Scanner(System.in);
-        String b = scanner1.nextLine();
-        int j = 0;
-        while (j < a) {
-            System.out.println(b);
-            j++;
-        }
-    }
-
-    static void years() {
-        Scanner scanner = new Scanner(System.in);
-        int year = scanner.nextInt();
-        boolean t = false;
-        if (year % 4 == 0) {
-            if (year % 100 != 0)
-                t = true;
-            if (t == true)
-                System.out.println(t);
-        }
-        if (t == false) {
-            if (year % 400 == 0)
-                t = true;
-            if (t == true)
-                System.out.println(t);
-        }
-        if (t == false) {
-            t = false;
-            System.out.println(t);
-        }
-
+    static boolean years(int a) {
+        return a % 4 == 0 && a % 400 == 0;
     }
 
     static void massive1() {
@@ -145,15 +102,12 @@ public class Main {
 
     static void massive2() {
         int[] data = new int[100];
-        data[0] = 0;
-        int j = 0;
-        while (j < data.length) {
-            data[j] = j;
-            j++;
-            if (j == data.length)
-                System.out.println(Arrays.toString(data));
+        data[0] = 1;
+        for (int i = 1; i < data.length + 1; i++) {
+            System.out.println(i);
         }
     }
+
 
     static void massive3() {
         int[] data = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
@@ -182,20 +136,12 @@ public class Main {
         }
     }
 
-    static void massive5() {
-        Scanner scanner = new Scanner(System.in);
-        int len = scanner.nextInt();
-        Scanner scanner1 = new Scanner(System.in);
-        int initialValue = scanner1.nextInt();
-        int[] data = new int[len];
-        int j = 0;
-        while (j < data.length) {
-            data[j] = initialValue;
-            j++;
+    static void massive5(int a, int b) {
+        int[] data=new int[a];
+        for (int i = 0; i < b+2 ; i++) {
+            data[i] = b;
         }
-        System.out.println(Arrays.toString(data));
-
     }
-
 }
+
 
